@@ -1,0 +1,251 @@
+/* Reset some basic elements */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+
+body {
+  line-height: 1;
+  font-family: 'Arial', sans-serif;
+  background-color: #f4f4f4;
+  color: #333;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+/* Header styles */
+header {
+  background-color: #005a9c;
+  color: white;
+  padding: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+header h1 {
+  cursor: pointer;
+  font-size: 1.5rem;
+}
+
+#menu-toggle {
+  font-size: 2rem;
+  cursor: pointer;
+  display: none; /* Hidden by default, shown in mobile view */
+}
+
+/* Navigation styles */
+nav#mobile-nav {
+  display: none;
+}
+
+/* Main content styles */
+main {
+  padding: 1rem;
+}
+
+/* Search box styles */
+#searchBox {
+  max-width: 500px;
+  margin: 1rem auto;
+  padding: 1rem;
+  background-color: #ffffff;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  border-radius: 8px;
+}
+
+#searchBox input, #searchBox button {
+  width: calc(100% - 2rem); /* Full width minus padding */
+  padding: 0.5rem;
+  margin: 0.5rem 0;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1rem;
+}
+
+#searchBox button {
+  background-color: #333;
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+#searchBox button:hover, #searchBox button:focus {
+  background-color: #e8491d;
+}
+
+/* Search results styles */
+#search-results {
+  padding: 1rem;
+}
+
+/* Footer styles */
+footer {
+  background-color: #333;
+  color: white;
+  text-align: center;
+  padding: 1rem;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+
+footer a {
+  color: #ffffff;
+  text-decoration: none;
+}
+
+footer a:hover {
+  text-decoration: underline;
+}
+
+/* Media query for tablet and desktop */
+@media (min-width: 768px) {
+  #menu-toggle {
+    display: block; /* Show menu toggle in mobile view */
+  }
+  nav#mobile-nav {
+    display: flex;
+    justify-content: center;
+    padding: 0.5rem 0;
+  }
+  nav#mobile-nav a {
+    margin: 0 1rem;
+    color: white;
+    text-decoration: none;
+    font-size: 1rem;
+  }
+  nav#mobile-nav a:hover {
+    text-decoration: underline;
+  }
+
+  /* Adjusting form layout for desktop view */
+  #searchBox {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  #searchBox input, #searchBox button {
+    width: auto;
+    margin: 0.5rem;
+    flex-grow: 1;
+  }
+  #searchBox button {
+    white-space: nowrap; /* Ensure button text doesn't wrap */
+    flex-grow: 0;
+  }
+}
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    text-align: center;
+}
+
+header {
+    background-color: #005a9c;
+    color: white;
+    padding: 10px 0;
+}
+
+#branding {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+#branding img {
+    height: 100px; /* Adjust as needed */
+    margin-right: 20px;
+}
+
+#menu-toggle {
+    display: none; /* Initially hide the toggle menu */
+    /* Additional styles for the toggle menu */
+}
+
+nav {
+    /* Additional styles for navigation */
+}
+
+main {
+    padding: 20px;
+}
+
+#searchBox h2 {
+    color: #333;
+    margin-bottom: 20px;
+}
+
+#searchBox input[type="text"],
+#searchBox input[type="date"],
+#searchBox input[type="submit"] {
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    width: calc(100% - 22px); /* Adjust width for padding and border */
+}
+
+#searchBox input[type="submit"] {
+    background-color: #333;
+    color: white;
+    cursor: pointer;
+    width: 100%;
+}
+
+#searchBox input[type="submit"]:hover {
+    background-color: #e8491d;
+}
+
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+
+footer p, footer a {
+    margin: 0;
+}
+
+@media (min-width: 768px) {
+    /* Styles for larger screens */
+    #menu-toggle {
+        display: block; /* Show the toggle menu on larger screens */
+    }
+}
+
+
+/* Add additional styles as needed */

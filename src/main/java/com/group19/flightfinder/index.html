@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Flight Search</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+        }
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+        }
+        .input-field {
+            background-color: #F1F5F9;
+            border-radius: 0.5rem;
+            border: 1px solid #D1D5DB;
+            padding: 0.75rem 1rem;
+        }
+        .button-blue {
+            background-color: #1D4ED8;
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.5rem;
+            font-weight: bold;
+            border: none;
+        }
+    </style>
+</head>
+<body class="bg-gray-100">
+<div class="container py-5">
+    <nav class="flex justify-between items-center mb-4">
+        <img src="https://placehold.co/100x50" alt="Logo placeholder" class="h-8">
+        <div class="space-x-4">
+            <button class="text-white bg-blue-500 px-4 py-2 rounded">Logg inn</button>
+        </div>
+    </nav>
+    <header class="text-center mb-6">
+        <h1 class="text-2xl font-bold">Millioner av billige flyreiser. Ett enkelt søk.</h1>
+    </header>
+    <div class="bg-white shadow rounded-lg p-6">
+        <form class="space-y-4">
+            <div class="flex gap-4">
+                <div class="flex-1">
+                    <label class="block mb-2">Fra</label>
+                    <input type="text" class="input-field w-full" placeholder="Trondheim (TRD)">
+                </div>
+                <div class="flex-1">
+                    <label class="block mb-2">Til</label>
+                    <input type="text" class="input-field w-full" placeholder="Land, by eller flyplass">
+                </div>
+                <div class="flex-1">
+                    <label class="block mb-2">Avreise</label>
+                    <input type="date" class="input-field w-full">
+                </div>
+                <div class="flex-1">
+                    <label class="block mb-2">Tur-retur</label>
+                    <input type="date" class="input-field w-full">
+                </div>
+                <div class="flex items-end">
+                    <button type="submit" class="button-blue">Søk</button>
+                </div>
+            </div>
+            <div class="flex items-center space-x-4">
+                <input type="checkbox" id="nearby">
+                <label for="nearby">Inkluder flyplasser i nærheten</label>
+            </div>
+            <div class="flex items-center space-x-4">
+                <input type="checkbox" id="direct">
+                <label for="direct">Direkteflyvninger</label>
+            </div>
+        </form>
+    </div>
+    <footer class="text-center mt-10">
+        <p>© 2024 Flight Search Service</p>
+    </footer>
+</div>
+</body>
+</html>
