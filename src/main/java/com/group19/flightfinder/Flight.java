@@ -3,6 +3,7 @@ package com.group19.flightfinder;
 import jakarta.persistence.*;
 import java.time.LocalDateTime;
 
+
 @Entity
 @Table(name = "flights")
 public class Flight {
