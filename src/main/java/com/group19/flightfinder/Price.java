@@ -6,7 +6,7 @@ import jakarta.persistence.*;
 @Table(name= "Price")
 public class Price {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long priceId;
 
     Flight flightId = new Flight();
