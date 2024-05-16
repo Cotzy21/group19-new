@@ -1,15 +1,13 @@
 package com.group19.flightfinder;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
 @Entity
 @Table(name="Favourite")
 public class Favourite {
     @Id
     @GeneratedValue
+    @Column(name="favouriteId", nullable = false)
     private long favouriteId;
 
     User userId = new User();
