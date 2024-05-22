@@ -1,5 +1,6 @@
-package com.group19.flightfinder;
+package com.group19.flightfinder.Dao;
 import com.group19.flightfinder.Entity.Flight;
+import com.group19.flightfinder.JdbcConnection;
 import com.group19.flightfinder.RowMapper.FlightRowMapper;
 
 

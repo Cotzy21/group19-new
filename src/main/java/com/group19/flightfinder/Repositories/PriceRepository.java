@@ -1,2 +1,9 @@
-package com.group19.flightfinder.Repositories;public class PriceRepository {
+package com.group19.flightfinder.Repositories;
+
+import com.group19.flightfinder.Entity.Price;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+
+@Repository
+public interface PriceRepository extends JpaRepository<Price, Long> {
 }

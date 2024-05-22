@@ -2,9 +2,54 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>$Title$</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Search Results</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-$END$
+<header>
+  <div class="header-container">
+    <div class="logo">
+      FlightFinder
+    </div>
+    <div class="top-right-buttons">
+      <button class="header-button" onclick="window.location.href='login.html'">Login</button>
+      <button class="header-button" onclick="window.location.href='register.html'">Register</button>
+    </div>
+  </div>
+</header>
+
+<div class="search-results">
+  <h1>Search Results</h1>
+  <div id="results"></div>
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const urlParams = new URLSearchParams(window.location.search);
+    const tripType = urlParams.get('tripType');
+    const adults = urlParams.get('adults');
+    const children = urlParams.get('children');
+    const infants = urlParams.get('infants');
+    const classType = urlParams.get('classType');
+    const from = urlParams.get('from');
+    const to = urlParams.get('to');
+    const startDate = urlParams.get('startDate');
+    const endDate = urlParams.get('endDate');
+
+    const resultsContainer = document.getElementById('results');
+    resultsContainer.innerHTML = `
+            <p>Trip Type: ${tripType}</p>
+            <p>From: ${from}</p>
+            <p>To: ${to}</p>
+            <p>Start Date: ${startDate}</p>
+            <p>End Date: ${endDate}</p>
+            <p>Class: ${classType}</p>
+            <p>Adults: ${adults}</p>
+            <p>Children: ${children}</p>
+            <p>Infants: ${infants}</p>
+        `;
+  });
+</script>
 </body>
 </html>

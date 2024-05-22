@@ -1,4 +1,4 @@
-package com.group19.flightfinder;
+package com.group19.flightfinder.Entity;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.GeneratedValue;

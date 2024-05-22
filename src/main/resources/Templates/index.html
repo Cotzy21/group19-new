@@ -1,81 +1,127 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Flight Search</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-    <style>
-        body {
-            font-family: 'Roboto', sans-serif;
-        }
-        .container {
-            max-width: 1280px;
-            margin: 0 auto;
-        }
-        .input-field {
-            background-color: #F1F5F9;
-            border-radius: 0.5rem;
-            border: 1px solid #D1D5DB;
-            padding: 0.75rem 1rem;
-        }
-        .button-blue {
-            background-color: #1D4ED8;
-            color: white;
-            padding: 0.75rem 1.5rem;
-            border-radius: 0.5rem;
-            font-weight: bold;
-            border: none;
-        }
-    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FlightFinder</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
-<body class="bg-gray-100">
-<div class="container py-5">
-    <nav class="flex justify-between items-center mb-4">
-        <img src="https://placehold.co/100x50" alt="Logo placeholder" class="h-8">
-        <div class="space-x-4">
-            <button class="text-white bg-blue-500 px-4 py-2 rounded">Logg inn</button>
+<body>
+<header>
+    <div class="header-container">
+        <div class="logo">
+            FlightFinder
         </div>
-    </nav>
-    <header class="text-center mb-6">
-        <h1 class="text-2xl font-bold">Millioner av billige flyreiser. Ett enkelt søk.</h1>
-    </header>
-    <div class="bg-white shadow rounded-lg p-6">
-        <form class="space-y-4">
-            <div class="flex gap-4">
-                <div class="flex-1">
-                    <label class="block mb-2">Fra</label>
-                    <input type="text" class="input-field w-full" placeholder="Trondheim (TRD)">
-                </div>
-                <div class="flex-1">
-                    <label class="block mb-2">Til</label>
-                    <input type="text" class="input-field w-full" placeholder="Land, by eller flyplass">
-                </div>
-                <div class="flex-1">
-                    <label class="block mb-2">Avreise</label>
-                    <input type="date" class="input-field w-full">
-                </div>
-                <div class="flex-1">
-                    <label class="block mb-2">Tur-retur</label>
-                    <input type="date" class="input-field w-full">
-                </div>
-                <div class="flex items-end">
-                    <button type="submit" class="button-blue">Søk</button>
-                </div>
-            </div>
-            <div class="flex items-center space-x-4">
-                <input type="checkbox" id="nearby">
-                <label for="nearby">Inkluder flyplasser i nærheten</label>
-            </div>
-            <div class="flex items-center space-x-4">
-                <input type="checkbox" id="direct">
-                <label for="direct">Direkteflyvninger</label>
-            </div>
-        </form>
+        <div class="top-right-buttons">
+            <button class="header-button" onclick="window.location.href='login.html'">Login</button>
+            <button class="header-button" onclick="window.location.href='register.html'">Register</button>
+        </div>
     </div>
-    <footer class="text-center mt-10">
-        <p>© 2024 Flight Search Service</p>
-    </footer>
+</header>
+
+<div class="banner">
+    <div class="slogan">
+        <h1>Find Your Perfect Flight</h1>
+        <p>Explore the best deals on flights and travel the world!</p>
+    </div>
+    <div class="search-panel">
+        <div class="search-option">
+            <button class="search-option-button" id="trip-type-btn">Round trip</button>
+            <div class="search-option-content" id="trip-type-content">
+                <button class="search-option-item" onclick="setTripType('Round trip')">Round trip</button>
+                <button class="search-option-item" onclick="setTripType('One-way')">One-way</button>
+            </div>
+        </div>
+        <div class="search-option">
+            <button class="search-option-button" id="passengers-btn">Passengers</button>
+            <div class="search-option-content">
+                <div class="passenger-row">
+                    Adults
+                    <div>
+                        <button class="quantity-button" onclick="decrease('adults')">-</button>
+                        <span id="adults">1</span>
+                        <button class="quantity-button" onclick="increase('adults')">+</button>
+                    </div>
+                </div>
+                <div class="passenger-row">
+                    Children 2-12
+                    <div>
+                        <button class="quantity-button" onclick="decrease('children')">-</button>
+                        <span id="children">0</span>
+                        <button class="quantity-button" onclick="increase('children')">+</button>
+                    </div>
+                </div>
+                <div class="passenger-row">
+                    Infants 0-2
+                    <div>
+                        <button class="quantity-button" onclick="decrease('infants')">-</button>
+                        <span id="infants">0</span>
+                        <button class="quantity-button" onclick="increase('infants')">+</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="search-option">
+            <button class="search-option-button" id="class-btn">Economy</button>
+            <div class="search-option-content" id="class-content">
+                <button class="search-option-item" onclick="setClass('Economy')">Economy</button>
+                <button class="search-option-item" onclick="setClass('Business')">Business</button>
+            </div>
+        </div>
+        <input type="text" id="from-input" placeholder="From">
+        <input type="text" id="to-input" placeholder="To">
+        <input type="date" id="start-date" placeholder="dd/mm/yyyy">
+        <input type="date" id="end-date" placeholder="dd/mm/yyyy">
+        <button class="search-button" onclick="searchFlights()">Search</button>
+    </div>
 </div>
+
+<div class="deals-section">
+    <div class="card">
+        <div class="card-header">
+            <div class="card-title">Flight to Milan</div>
+            <div class="card-description">From Oslo to Milan</div>
+            <div class="card-pricing">
+                <div class="card-pricing-number"><sup>$</sup>39</div>
+                <div class="card-pricing-cycle">Round Trip</div>
+            </div>
+            <button class="secondary-action">Book Now</button>
+        </div>
+    </div>
+    <div class="card">
+        <div class="card-header">
+            <div class="card-title">Flight to Paris</div>
+            <div class="card-description">From Oslo to Paris</div>
+            <div class="card-pricing">
+                <div class="card-pricing-number"><sup>$</sup>59</div>
+                <div class="card-pricing-cycle">Round Trip</div>
+            </div>
+            <button class="secondary-action">Book Now</button>
+        </div>
+    </div>
+    <div class="card">
+        <div class="card-header">
+            <div class="card-title">Flight to London</div>
+            <div class="card-description">From Oslo to London</div>
+            <div class="card-pricing">
+                <div class="card-pricing-number"><sup>$</sup>69</div>
+                <div class="card-pricing-cycle">Round Trip</div>
+            </div>
+            <button class="secondary-action">Book Now</button>
+        </div>
+    </div>
+</div>
+
+<footer class="footer">
+    <div class="slogan">Explore the world with FlightFinder</div>
+    <div class="social-media">
+        <a href="#" class="social-icon"><img src="facebook.png" alt="Facebook"></a>
+        <a href="#" class="social-icon"><img src="twitter.png" alt="Twitter"></a>
+        <a href="#" class="social-icon"><img src="instagram.png" alt="Instagram"></a>
+    </div>
+    <div>Contact us at: support@flightfinder.com</div>
+</footer>
+
+<script src="script.js"></script>
 </body>
 </html>

@@ -1,7 +1,7 @@
-package com.group19.flightfinder;
+package com.group19.flightfinder.Controller;
 
-import com.group19.flightfinder.FlightDao.*;
 import com.group19.flightfinder.Entity.Flight;
+import com.group19.flightfinder.Service.FlightService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/flights")
+@RequestMapping("/api/flights")
 public class FlightController {
 
     @Autowired

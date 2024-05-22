@@ -1,54 +1,73 @@
-// Toggle mobile menu
-function toggleMenu() {
-    const nav = document.getElementById('mobile-nav');
-    nav.classList.toggle('show');
-}
-
-// Simulate a fetch request to get flight data (mock function)
-function getFlightData(searchParams) {
-    // Normally, you would use fetch() or axios to get data from your backend.
-    // Here we simulate a delay like an async call.
-    return new Promise(resolve => {
-        setTimeout(() => {
-            resolve([
-                { id: 1, from: 'OSL', to: 'AMS', depart: '2024-07-21', price: '99 EUR' },
-                { id: 2, from: 'OSL', to: 'NYC', depart: '2024-08-15', price: '299 USD' },
-                // ...add more mock flights
-            ]);
-        }, 1000);
+document.addEventListener('DOMContentLoaded', function () {
+    const tripTypeBtn = document.getElementById('trip-type-btn');
+    const tripTypeContent = document.getElementById('trip-type-content');
+    tripTypeBtn.addEventListener('click', function () {
+        tripTypeContent.style.display = tripTypeContent.style.display === 'block' ? 'none' : 'block';
     });
-}
 
-// Render flights to the DOM
-function renderFlights(flights) {
-    const resultsContainer = document.getElementById('search-results');
-    resultsContainer.innerHTML = ''; // Clear previous results
-
-    flights.forEach(flight => {
-        const flightElement = document.createElement('div');
-        flightElement.className = 'flight-result';
-        flightElement.innerHTML = `
-            <h2>${flight.from} to ${flight.to}</h2>
-            <p>Departure: ${flight.depart}</p>
-            <p>Price: ${flight.price}</p>
-        `;
-        resultsContainer.appendChild(flightElement);
+    const classBtn = document.getElementById('class-btn');
+    const classContent = document.getElementById('class-content');
+    classBtn.addEventListener('click', function () {
+        classContent.style.display = classContent.style.display === 'block' ? 'none' : 'block';
     });
-}
 
-// Handle search form submission
-document.getElementById('search-form').addEventListener('submit', async function(event) {
-    event.preventDefault();
-
-    const leavingFrom = document.getElementById('leaving-from').value;
-    const goingTo = document.getElementById('going-to').value;
-    const departing = document.getElementById('departing').value;
-    const returning = document.getElementById('returning').value;
-
-    // Assuming getFlightData is an API call to your backend
-    const flights = await getFlightData({ leavingFrom, goingTo, departing, returning });
-    renderFlights(flights);
+    const passengersBtn = document.getElementById('passengers-btn');
+    passengersBtn.addEventListener('click', function () {
+        const passengerContent = this.nextElementSibling;
+        passengerContent.style.display = passengerContent.style.display === 'block' ? 'none' : 'block';
+    });
 });
 
-// Initial call to load some default flight data
-getFlightData().then(renderFlights);
+function setTripType(type) {
+    document.getElementById('trip-type-btn').innerText = type;
+    document.getElementById('trip-type-content').style.display = 'none';
+}
+
+function setClass(classType) {
+    document.getElementById('class-btn').innerText = classType;
+    document.getElementById('class-content').style.display = 'none';
+}
+
+function increase(type) {
+    const countElement = document.getElementById(type);
+    let count = parseInt(countElement.textContent);
+    count++;
+    countElement.textContent = count;
+}
+
+function decrease(type) {
+    const countElement = document.getElementById(type);
+    let count = parseInt(countElement.textContent);
+    if (count > 0) {
+        count--;
+        countElement.textContent = count;
+    }
+}
+
+function searchFlights() {
+    const tripType = document.getElementById('trip-type-btn').innerText;
+    const passengers = {
+        adults: document.getElementById('adults').innerText,
+        children: document.getElementById('children').innerText,
+        infants: document.getElementById('infants').innerText
+    };
+    const classType = document.getElementById('class-btn').innerText;
+    const from = document.getElementById('from-input').value;
+    const to = document.getElementById('to-input').value;
+    const startDate = document.getElementById('start-date').value;
+    const endDate = document.getElementById('end-date').value;
+
+    const urlParams = new URLSearchParams({
+        tripType: tripType,
+        adults: passengers.adults,
+        children: passengers.children,
+        infants: passengers.infants,
+        classType: classType,
+        from: from,
+        to: to,
+        startDate: startDate,
+        endDate: endDate
+    });
+
+    window.location.href = 'search.html?' + urlParams.toString();
+}

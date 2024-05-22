@@ -1,4 +1,6 @@
-package com.group19.flightfinder;
+package com.group19.flightfinder.RowMapper;
+
+import com.group19.flightfinder.Entity.Flight;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
