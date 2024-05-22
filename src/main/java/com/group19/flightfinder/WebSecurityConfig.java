@@ -14,7 +14,7 @@ public class WebSecurityConfig {
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http
                 .authorizeHttpRequests(authorize -> authorize
-                        .requestMatchers("/", "/home", "/public/**").permitAll()  // Use requestMatchers for clarity
+                        .requestMatchers("/", "/home", "/index").permitAll()  // Use requestMatchers for clarity
                         .anyRequest().authenticated()
                 )
                 .formLogin(form -> form

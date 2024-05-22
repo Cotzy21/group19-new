@@ -17,7 +17,7 @@ public class FavouriteRowMapper implements RowMapper<Favourite> {
 
         long userId = rs.getLong("userId");
         User user = new User();
-        user.setId(userId);
+        user.setUserId(userId);
 
         Favourite favourite = new Favourite();
         favourite.setFavouriteId(favouriteId);

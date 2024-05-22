@@ -14,9 +14,9 @@ public class AppConfig {
     public DataSource dataSource() {
         DriverManagerDataSource dataSource = new DriverManagerDataSource();
         dataSource.setDriverClassName("com.mysql.cj.jdbc.Driver");
-        dataSource.setUrl("jdbc:mysql://localhost:3308/flightfinder");
-        dataSource.setUsername("your_username");
-        dataSource.setPassword("your_password");
+        dataSource.setUrl("jdbc:mysql://localhost:3307/flightfinder");
+        dataSource.setUsername("oskarok");
+        dataSource.setPassword("oskarkotyla11");
 
         return dataSource;
     }

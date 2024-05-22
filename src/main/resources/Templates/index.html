@@ -13,8 +13,8 @@
             FlightFinder
         </div>
         <div class="top-right-buttons">
-            <button class="header-button" onclick="window.location.href='login.html'">Login</button>
-            <button class="header-button" onclick="window.location.href='register.html'">Register</button>
+            <button class="header-button" onclick="window.location.href='/login'">Login</button>
+            <button class="header-button" onclick="window.location.href='/register'">Register</button>
         </div>
     </div>
 </header>
@@ -26,14 +26,14 @@
     </div>
     <div class="search-panel">
         <div class="search-option">
-            <button class="search-option-button" id="trip-type-btn">Round trip</button>
-            <div class="search-option-content" id="trip-type-content">
-                <button class="search-option-item" onclick="setTripType('Round trip')">Round trip</button>
-                <button class="search-option-item" onclick="setTripType('One-way')">One-way</button>
+            <button class="search-option-button">Round trip</button>
+            <div class="search-option-content">
+                <button class="search-option-item">Round trip</button>
+                <button class="search-option-item">One-way</button>
             </div>
         </div>
         <div class="search-option">
-            <button class="search-option-button" id="passengers-btn">Passengers</button>
+            <button class="search-option-button">Passengers</button>
             <div class="search-option-content">
                 <div class="passenger-row">
                     Adults
@@ -62,17 +62,17 @@
             </div>
         </div>
         <div class="search-option">
-            <button class="search-option-button" id="class-btn">Economy</button>
-            <div class="search-option-content" id="class-content">
-                <button class="search-option-item" onclick="setClass('Economy')">Economy</button>
-                <button class="search-option-item" onclick="setClass('Business')">Business</button>
+            <button class="search-option-button">Economy</button>
+            <div class="search-option-content">
+                <button class="search-option-item">Economy</button>
+                <button class="search-option-item">Business</button>
             </div>
         </div>
-        <input type="text" id="from-input" placeholder="From">
-        <input type="text" id="to-input" placeholder="To">
-        <input type="date" id="start-date" placeholder="dd/mm/yyyy">
-        <input type="date" id="end-date" placeholder="dd/mm/yyyy">
-        <button class="search-button" onclick="searchFlights()">Search</button>
+        <input type="text" placeholder="From">
+        <input type="text" placeholder="To">
+        <input type="text" placeholder="dd/mm/yyyy" onfocus="(this.type='date')">
+        <input type="text" placeholder="dd/mm/yyyy" onfocus="(this.type='date')">
+        <button class="search-button">Search</button>
     </div>
 </div>
 
@@ -83,7 +83,7 @@
             <div class="card-description">From Oslo to Milan</div>
             <div class="card-pricing">
                 <div class="card-pricing-number"><sup>$</sup>39</div>
-                <div class="card-pricing-cycle">Round Trip</div>
+                <div class="card-pricing-cycle">one-way</div>
             </div>
             <button class="secondary-action">Book Now</button>
         </div>
@@ -94,7 +94,7 @@
             <div class="card-description">From Oslo to Paris</div>
             <div class="card-pricing">
                 <div class="card-pricing-number"><sup>$</sup>59</div>
-                <div class="card-pricing-cycle">Round Trip</div>
+                <div class="card-pricing-cycle">round-trip</div>
             </div>
             <button class="secondary-action">Book Now</button>
         </div>
@@ -105,7 +105,7 @@
             <div class="card-description">From Oslo to London</div>
             <div class="card-pricing">
                 <div class="card-pricing-number"><sup>$</sup>69</div>
-                <div class="card-pricing-cycle">Round Trip</div>
+                <div class="card-pricing-cycle">round-trip</div>
             </div>
             <button class="secondary-action">Book Now</button>
         </div>

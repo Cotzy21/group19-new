@@ -3,9 +3,9 @@ package com.group19.flightfinder;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
+import org.springframework.context.annotation.ComponentScan;
 
 @SpringBootApplication
-
 @EntityScan(basePackages = {"com.group19.flightfinder"})
 public class FlightfinderApplication {
 
