@@ -44,6 +44,4 @@ public class UserDao {
         }
         return null;
     }
-
-    // Add more methods as needed (create, update, delete)
 }

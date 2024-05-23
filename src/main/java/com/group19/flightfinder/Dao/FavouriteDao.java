@@ -46,6 +46,4 @@ public class FavouriteDao {
         }
         return null;
     }
-
-    // Add more methods as needed (create, update, delete)
 }

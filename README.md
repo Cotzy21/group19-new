@@ -29,7 +29,7 @@ The backend service for FlightFinder handles all server-side operations includin
 
 1. **Clone the repository:**
    ```bash
-   git clone https://github.com/yourusername/flightfinder.git
+   git clone https://github.com/Cotzy21/group19-new.git
    cd flightfinder/backend
 Backend
 Controllers
